@@ -16,6 +16,6 @@ public class BaseService {
     }
 
     Response postRequest(String endPoint,Object payload){
-        return requestSpecification.body(payload).when().post(endPoint);
+        return requestSpecification.log().all().body(payload).when().post(endPoint);
     }
 }
