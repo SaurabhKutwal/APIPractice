@@ -34,8 +34,15 @@ public class AuthTest {
 
     @Test(description = "Checking singUp functionality of API")
     public void signUpTest(){
-        SignupRequest signupRequest = new SignupRequest("blabla3","asdf@qwer","3kjghgcadso@gmail.com","mota",
-                "panda","1234567891");
+
+        SignupRequest signupRequest = new SignupRequest.Builder()
+                .username("blabla4")
+                .password("asdf@qwer")
+                .firstName("mota")
+                .lastName("panda")
+                .email("4kjghgcadso@gmail.com")
+                .mobileNumber("1234567891")
+                .build();
 
         authService = new AuthService();
         response = authService.signup(signupRequest);
