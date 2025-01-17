@@ -14,8 +14,14 @@ public class BaseService {
         this.requestSpecification = given().baseUri(BASE_URI)
                 .header("Content-Type","application/json");
     }
+    protected void setToken(String token){
+        requestSpecification.header("Authorization","Bearer " + token);
+    }
+    protected Response postRequest(String endPoint,Object payload){
+        return requestSpecification.body(payload).when().post(endPoint);
+    }
 
-    Response postRequest(String endPoint,Object payload){
-        return requestSpecification.log().all().body(payload).when().post(endPoint);
+    protected Response getRequest(String endpoint){
+        return requestSpecification.when().get(endpoint);
     }
 }

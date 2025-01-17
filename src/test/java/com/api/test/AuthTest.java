@@ -57,7 +57,7 @@ public class AuthTest {
         ResetPasswordRequest resetPasswordRequest = new ResetPasswordRequest("BlackP34rl#01","BlackP34rl#01",token);
         response = authService.resetPassword(resetPasswordRequest);
 
-        response.then().log().all().assertThat().statusCode(200);
+        response.then().assertThat().statusCode(200);
         System.out.println(response.asPrettyString());
     }
 }

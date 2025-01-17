@@ -1,14 +1,14 @@
 package com.api.pojomodels.request;
 
 public class SignupRequest {
-    private String username;
-    private String password;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String mobileNumber;
+    private final String username;
+    private final String password;
+    private final String email;
+    private final String firstName;
+    private final String lastName;
+    private final String mobileNumber;
 
-    public SignupRequest(String username, String password, String email, String firstName, String lastName, String mobileNumber) {
+    private SignupRequest(String username, String password, String email, String firstName, String lastName, String mobileNumber) {
         this.username = username;
         this.password = password;
         this.email = email;
