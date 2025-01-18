@@ -21,6 +21,21 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Execute Tests
-      run: mvn clean test -Dsuite=allTest -X
+      run: mvn clean test -Dsuite=userProfileService -X
 
+    - name: Upload a Build Artifact
+      if: always()
+      uses: actions/upload-artifact@v4.6.0
+      with:
+        name: Logs
+        path: output/logs/
+
+    - name: Publish Test Report
+      if: always()
+      uses: turing85/publish-report@v2.1.1
+      with:
+        name: Result
+        path: target/surefire-reports/junitreports/TEST-*.xml
+        reporter: java-junit
+      
 
