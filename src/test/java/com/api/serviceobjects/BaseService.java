@@ -1,5 +1,7 @@
 package com.api.serviceobjects;
 
+import com.api.Filter.LogFilter;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -10,6 +12,9 @@ public class BaseService {
     private static final String BASE_URI = "http://64.227.160.186:8080";
     protected RequestSpecification requestSpecification;
 
+    static {
+        RestAssured.filters(new LogFilter());
+    }
     public BaseService(){
         this.requestSpecification = given().baseUri(BASE_URI)
                 .header("Content-Type","application/json");
